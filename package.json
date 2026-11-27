@@ -1,0 +1,49 @@
+{
+  "name": "oneroot-erp-desktop",
+  "version": "1.1.1",
+  "description": "OneRoot ERP desktop app (opens the live ERP in its own window)",
+  "author": "OneRoot",
+  "private": true,
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "icon": "node scripts/make-icon.cjs",
+    "dist": "electron-builder --win"
+  },
+  "build": {
+    "appId": "farm.oneroot.erp",
+    "productName": "OneRoot ERP",
+    "files": [
+      "main.js",
+      "preload.js",
+      "offline.html",
+      "config.json",
+      "build/icon.png"
+    ],
+    "extraResources": [
+      {
+        "from": "config.json",
+        "to": "config.json"
+      }
+    ],
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": "nsis",
+      "icon": "build/icon.png"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "OneRoot ERP"
+    }
+  },
+  "devDependencies": {
+    "electron": "^33.4.11",
+    "electron-builder": "^25.1.8"
+  }
+}

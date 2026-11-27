@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>OneRoot ERP — Not connected</title>
+    <style>
+      body {
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Segoe UI", Arial, sans-serif;
+        background: #fff7f0;
+        color: #1f2937;
+      }
+      .card {
+        max-width: 420px;
+        padding: 32px;
+        text-align: center;
+        background: #fff;
+        border-radius: 16px;
+        box-shadow: 0 10px 30px rgba(255, 98, 0, 0.15);
+      }
+      h1 {
+        margin: 0 0 8px;
+        font-size: 20px;
+      }
+      p {
+        margin: 0 0 20px;
+        color: #4b5563;
+        font-size: 14px;
+        line-height: 1.5;
+      }
+      button {
+        padding: 10px 28px;
+        border: 0;
+        border-radius: 8px;
+        background: #ff6200;
+        color: #fff;
+        font-size: 15px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <h1>Can't reach the ERP</h1>
+      <p>Check this computer's internet connection, then press Retry. If the internet is working, the ERP server may be down — call the admin.</p>
+      <button id="retry">Retry</button>
+    </div>
+    <script>
+      const target = new URLSearchParams(location.search).get("url") || "https://erp.oneroot.farm";
+      document.getElementById("retry").onclick = () => (location.href = target);
+    </script>
+  </body>
+</html>
